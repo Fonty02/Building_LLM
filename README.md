@@ -4,4 +4,4 @@ Documenting and sharing the code developed as I progress through the book [*Buil
 
 Original repository of the book: [LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch).
 
-See [author](@mattiacurri)
+See [author](https://github.com/mattiacurri)
