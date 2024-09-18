@@ -7,7 +7,7 @@ import timeit
 
 # Your journey starts with one step is our input sequence
 inputs = torch.tensor(
-    [[0.43, 0.15, 0.89], # Your (x^1) 
+    [[0.43, 0.15, 0.89], # Your (x^1)  [0.43, 0.15, 0.89] is the embedding of the token "Your". The embedding contains three values, which represent the features of the token.
      [0.55, 0.87, 0.66], # journey (x^2)
      [0.57, 0.85, 0.64], # starts (x^3)
      [0.22, 0.58, 0.33], # with (x^4)
@@ -73,9 +73,9 @@ d_in = inputs.shape[1]
 d_out = 2 # in GPT-like models d_in = d_out, but for semplicity we set d_out = 2
 
 # Note: requires_grad = False to reduce clutter in the outputs, but in practice, these weights would be trainable (requires_grad = True)
-W_query = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False) # trainable query weight matrix
-W_key = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False) # trainable key weight matrix
-W_value = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False) # trainable value weight matrix
+W_query = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False) # trainable query weight matrix. Query represents the token for which we are trying to find relevant information
+W_key = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False) # trainable key weight matrix. Key represents the token that is used to match against the query
+W_value = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False) # trainable value weight matrix. Value represents the actual information that is being retrieved
 
 query_2 = torch.matmul(x_2, W_query) # project the query x^2 into the query space
 key_2 = torch.matmul(x_2, W_key) # project all input tokens into the key space
